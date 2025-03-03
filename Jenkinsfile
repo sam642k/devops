@@ -1,12 +1,12 @@
 pipeline {
     agent any
-    environment {
-        demo = credentials('demo-secret')
+    parameters {
+        string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
     }
     stages {
-        stage('Example stage 1') {
+        stage('Example') {
             steps {
-                bat 'set'
+                echo "${params.Greeting} World!"
             }
         }
     }
