@@ -9,7 +9,7 @@ pipeline {
                 DEBUG_FLAGS = '-g'
             }
             steps {
-                bat 'printenv'
+                bat 'set'
             }
         }
     }
