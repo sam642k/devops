@@ -1,24 +1,19 @@
 pipeline {
-    agent any 
+    agent {
+        // Define agent details here
+    }
     environment {
-        // Using bat command for Windows (equivalent to shell)
-        CC = """${bat(
-                returnStdout: true,
-                script: 'echo clang'
-            )}"""
-        // Using returnStatus in a Windows-compatible way
-        EXIT_STATUS = """${bat(
-                returnStatus: true,
-                script: 'exit /b 1'
-            )}"""
+        demo = credentials('demo-secret')
     }
     stages {
-        stage('Example') {
-            environment {
-                DEBUG_FLAGS = '-g'
-            }
+        stage('Example stage 1') {
             steps {
-                bat 'set' // Use 'set' to list environment variables in Windows
+                //
+            }
+        }
+        stage('Example stage 2') {
+            steps {
+                //
             }
         }
     }
